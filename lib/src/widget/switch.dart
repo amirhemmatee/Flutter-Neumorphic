@@ -136,7 +136,7 @@ class NeumorphicSwitch extends StatelessWidget {
       this.onChanged,
       this.height = 40,
       this.isEnabled = true,
-      this.child = const SizedBox()})
+      required this.child})
       : super(key: key);
 
   @override
