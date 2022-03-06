@@ -125,17 +125,19 @@ class NeumorphicSwitch extends StatelessWidget {
   final Duration duration;
   final Curve curve;
   final bool isEnabled;
+  final Widget? child;
 
-  const NeumorphicSwitch({
-    this.style = const NeumorphicSwitchStyle(),
-    Key? key,
-    this.curve = Neumorphic.DEFAULT_CURVE,
-    this.duration = const Duration(milliseconds: 200),
-    this.value = false,
-    this.onChanged,
-    this.height = 40,
-    this.isEnabled = true,
-  }) : super(key: key);
+  NeumorphicSwitch(
+      {this.style = const NeumorphicSwitchStyle(),
+      Key? key,
+      this.curve = Neumorphic.DEFAULT_CURVE,
+      this.duration = const Duration(milliseconds: 200),
+      this.value = false,
+      this.onChanged,
+      this.height = 40,
+      this.isEnabled = true,
+      this.child})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -240,19 +242,21 @@ class AnimatedThumb extends StatelessWidget {
   final bool disableDepth;
   final NeumorphicBorder border;
   final LightSource lightSource;
+  final Widget? child;
 
-  AnimatedThumb({
-    Key? key,
-    this.thumbColor,
-    required this.alignment,
-    required this.duration,
-    required this.shape,
-    this.depth,
-    this.curve = Curves.linear,
-    this.border = const NeumorphicBorder.none(),
-    this.lightSource = LightSource.topLeft,
-    this.disableDepth = false,
-  }) : super(key: key);
+  AnimatedThumb(
+      {Key? key,
+      this.thumbColor,
+      required this.alignment,
+      required this.duration,
+      required this.shape,
+      this.depth,
+      this.curve = Curves.linear,
+      this.border = const NeumorphicBorder.none(),
+      this.lightSource = LightSource.topLeft,
+      this.disableDepth = false,
+      this.child})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -277,7 +281,7 @@ class AnimatedThumb extends StatelessWidget {
             aspectRatio: 1,
             child: FractionallySizedBox(
               heightFactor: 1,
-              child: Container(),
+              child: child,
               //width: THUMB_WIDTH,
             ),
           ),
