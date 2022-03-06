@@ -125,9 +125,9 @@ class NeumorphicSwitch extends StatelessWidget {
   final Duration duration;
   final Curve curve;
   final bool isEnabled;
-  final Widget? child;
+  final Widget child;
 
-  NeumorphicSwitch(
+  const NeumorphicSwitch(
       {this.style = const NeumorphicSwitchStyle(),
       Key? key,
       this.curve = Neumorphic.DEFAULT_CURVE,
@@ -136,7 +136,7 @@ class NeumorphicSwitch extends StatelessWidget {
       this.onChanged,
       this.height = 40,
       this.isEnabled = true,
-      this.child})
+      this.child = const SizedBox()})
       : super(key: key);
 
   @override
@@ -180,6 +180,7 @@ class NeumorphicSwitch extends StatelessWidget {
                 lightSource: this.style.lightSource ?? theme.lightSource,
                 border: style.thumbBorder,
                 thumbColor: _getThumbColor(theme),
+                child: child,
               ),
             ),
           ),
@@ -242,7 +243,7 @@ class AnimatedThumb extends StatelessWidget {
   final bool disableDepth;
   final NeumorphicBorder border;
   final LightSource lightSource;
-  final Widget? child;
+  final Widget child;
 
   AnimatedThumb(
       {Key? key,
@@ -255,7 +256,7 @@ class AnimatedThumb extends StatelessWidget {
       this.border = const NeumorphicBorder.none(),
       this.lightSource = LightSource.topLeft,
       this.disableDepth = false,
-      this.child})
+      required this.child})
       : super(key: key);
 
   @override
